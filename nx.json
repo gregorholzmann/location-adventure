@@ -8,22 +8,13 @@
     "nx.json": "*"
   },
   "projects": {
-    "apps-location-frontend": {
-      "tags": []
-    },
-    "apps-location-frontend-e2e": {
-      "tags": []
-    },
-    "location-frontend-location-frontend": {
-      "tags": []
-    },
-    "location-frontend-location-frontend-e2e": {
-      "tags": []
-    },
     "location-frontend": {
       "tags": []
     },
     "location-frontend-e2e": {
+      "tags": []
+    },
+    "location-backend": {
       "tags": []
     }
   }

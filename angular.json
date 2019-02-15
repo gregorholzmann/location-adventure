@@ -26,7 +26,9 @@
               "apps/apps/location-frontend/src/favicon.ico",
               "apps/apps/location-frontend/src/assets"
             ],
-            "styles": ["apps/apps/location-frontend/src/styles.scss"],
+            "styles": [
+              "apps/apps/location-frontend/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -80,7 +82,9 @@
             "polyfills": "apps/apps/location-frontend/src/polyfills.ts",
             "tsConfig": "apps/apps/location-frontend/tsconfig.spec.json",
             "karmaConfig": "apps/apps/location-frontend/karma.conf.js",
-            "styles": ["apps/apps/location-frontend/src/styles.scss"],
+            "styles": [
+              "apps/apps/location-frontend/src/styles.scss"
+            ],
             "scripts": [],
             "assets": [
               "apps/apps/location-frontend/src/favicon.ico",
@@ -95,7 +99,9 @@
               "apps/apps/location-frontend/tsconfig.app.json",
               "apps/apps/location-frontend/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -121,7 +127,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/apps/location-frontend-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -222,7 +230,9 @@
               "apps/location-frontend/location-frontend/tsconfig.app.json",
               "apps/location-frontend/location-frontend/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -248,7 +258,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/location-frontend/location-frontend-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -276,7 +288,9 @@
               "apps/location-frontend/src/favicon.ico",
               "apps/location-frontend/src/assets"
             ],
-            "styles": ["apps/location-frontend/src/styles.scss"],
+            "styles": [
+              "apps/location-frontend/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -330,7 +344,9 @@
             "polyfills": "apps/location-frontend/src/polyfills.ts",
             "tsConfig": "apps/location-frontend/tsconfig.spec.json",
             "karmaConfig": "apps/location-frontend/karma.conf.js",
-            "styles": ["apps/location-frontend/src/styles.scss"],
+            "styles": [
+              "apps/location-frontend/src/styles.scss"
+            ],
             "scripts": [],
             "assets": [
               "apps/location-frontend/src/favicon.ico",
@@ -345,7 +361,9 @@
               "apps/location-frontend/tsconfig.app.json",
               "apps/location-frontend/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -371,7 +389,125 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/location-frontend-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "nestjs-app": {
+      "root": "apps/nestjs-app",
+      "sourceRoot": "apps/nestjs-app/src",
+      "projectType": "application",
+      "prefix": "nestjs-app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:node-build",
+          "options": {
+            "outputPath": "dist/apps/nestjs-app",
+            "main": "apps/nestjs-app/src/main.ts",
+            "tsConfig": "apps/nestjs-app/tsconfig.app.json",
+            "assets": [
+              "apps/nestjs-app/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/nestjs-app/src/environments/environment.ts",
+                  "with": "apps/nestjs-app/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:node-execute",
+          "options": {
+            "buildTarget": "nestjs-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/nestjs-app/tsconfig.app.json",
+              "apps/nestjs-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/nestjs-app/jest.config.js",
+            "tsConfig": "apps/nestjs-app/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "location-backend": {
+      "root": "apps/location-backend",
+      "sourceRoot": "apps/location-backend/src",
+      "projectType": "application",
+      "prefix": "location-backend",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:node-build",
+          "options": {
+            "outputPath": "dist/apps/location-backend",
+            "main": "apps/location-backend/src/main.ts",
+            "tsConfig": "apps/location-backend/tsconfig.app.json",
+            "assets": [
+              "apps/location-backend/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/location-backend/src/environments/environment.ts",
+                  "with": "apps/location-backend/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:node-execute",
+          "options": {
+            "buildTarget": "location-backend:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/location-backend/tsconfig.app.json",
+              "apps/location-backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/location-backend/jest.config.js",
+            "tsConfig": "apps/location-backend/tsconfig.spec.json"
           }
         }
       }
