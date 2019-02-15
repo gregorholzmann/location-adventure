@@ -16,6 +16,9 @@
     },
     "location-backend": {
       "tags": []
+    },
+    "location-service": {
+      "tags": []
     }
   }
 }

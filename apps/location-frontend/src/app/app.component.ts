@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Observable} from 'rxjs';
+
+import {LocationServiceModule} from '@location-adventure/location-service';
 
 @Component({
   selector: 'location-adventure-root',
@@ -6,6 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-
+  constructor(private locationService: LocationServiceModule){}
+  getPlace() {
+    this.locationService.getPlace()
+    // navigator.geolocation.getCurrentPosition((position) => {
+    // })
+  }
 }

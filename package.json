@@ -44,7 +44,8 @@
     "@ngrx/router-store": "6.1.2",
     "@ngrx/store": "6.1.2",
     "@nestjs/common": "5.5.0",
-    "@nestjs/core": "5.5.0"
+    "@nestjs/core": "5.5.0",
+    "@ngrx/entity": "6.1.2"
   },
   "devDependencies": {
     "@angular/cli": "~7.2.2",

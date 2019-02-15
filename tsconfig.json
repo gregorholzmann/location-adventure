@@ -12,7 +12,11 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@location-adventure/location-service": [
+        "libs/location-service/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

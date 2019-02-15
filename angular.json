@@ -26,9 +26,7 @@
               "apps/apps/location-frontend/src/favicon.ico",
               "apps/apps/location-frontend/src/assets"
             ],
-            "styles": [
-              "apps/apps/location-frontend/src/styles.scss"
-            ],
+            "styles": ["apps/apps/location-frontend/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -82,9 +80,7 @@
             "polyfills": "apps/apps/location-frontend/src/polyfills.ts",
             "tsConfig": "apps/apps/location-frontend/tsconfig.spec.json",
             "karmaConfig": "apps/apps/location-frontend/karma.conf.js",
-            "styles": [
-              "apps/apps/location-frontend/src/styles.scss"
-            ],
+            "styles": ["apps/apps/location-frontend/src/styles.scss"],
             "scripts": [],
             "assets": [
               "apps/apps/location-frontend/src/favicon.ico",
@@ -99,9 +95,7 @@
               "apps/apps/location-frontend/tsconfig.app.json",
               "apps/apps/location-frontend/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -127,9 +121,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/apps/location-frontend-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -230,9 +222,7 @@
               "apps/location-frontend/location-frontend/tsconfig.app.json",
               "apps/location-frontend/location-frontend/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -258,9 +248,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/location-frontend/location-frontend-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -288,9 +276,7 @@
               "apps/location-frontend/src/favicon.ico",
               "apps/location-frontend/src/assets"
             ],
-            "styles": [
-              "apps/location-frontend/src/styles.scss"
-            ],
+            "styles": ["apps/location-frontend/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -344,9 +330,7 @@
             "polyfills": "apps/location-frontend/src/polyfills.ts",
             "tsConfig": "apps/location-frontend/tsconfig.spec.json",
             "karmaConfig": "apps/location-frontend/karma.conf.js",
-            "styles": [
-              "apps/location-frontend/src/styles.scss"
-            ],
+            "styles": ["apps/location-frontend/src/styles.scss"],
             "scripts": [],
             "assets": [
               "apps/location-frontend/src/favicon.ico",
@@ -361,9 +345,7 @@
               "apps/location-frontend/tsconfig.app.json",
               "apps/location-frontend/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -389,9 +371,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/location-frontend-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -409,9 +389,7 @@
             "outputPath": "dist/apps/nestjs-app",
             "main": "apps/nestjs-app/src/main.ts",
             "tsConfig": "apps/nestjs-app/tsconfig.app.json",
-            "assets": [
-              "apps/nestjs-app/src/assets"
-            ]
+            "assets": ["apps/nestjs-app/src/assets"]
           },
           "configurations": {
             "production": {
@@ -440,9 +418,7 @@
               "apps/nestjs-app/tsconfig.app.json",
               "apps/nestjs-app/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -467,9 +443,7 @@
             "outputPath": "dist/apps/location-backend",
             "main": "apps/location-backend/src/main.ts",
             "tsConfig": "apps/location-backend/tsconfig.app.json",
-            "assets": [
-              "apps/location-backend/src/assets"
-            ]
+            "assets": ["apps/location-backend/src/assets"]
           },
           "configurations": {
             "production": {
@@ -498,9 +472,7 @@
               "apps/location-backend/tsconfig.app.json",
               "apps/location-backend/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -509,6 +481,37 @@
             "jestConfig": "apps/location-backend/jest.config.js",
             "tsConfig": "apps/location-backend/tsconfig.spec.json"
           }
+        }
+      }
+    },
+    "location-service": {
+      "root": "libs/location-service",
+      "sourceRoot": "libs/location-service/src",
+      "projectType": "library",
+      "prefix": "location-adventure",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/location-service/src/test.ts",
+            "tsConfig": "libs/location-service/tsconfig.spec.json",
+            "karmaConfig": "libs/location-service/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/location-service/tsconfig.lib.json",
+              "libs/location-service/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
         }
       }
     }
