@@ -1,2 +1,14 @@
-<button (click)="getPlace()">HI</button>
+<div>
+  <h1>
+    Some Info About Nearby Places
+  </h1>
+  {{nearbyPlace.length}}
+  <div *ngFor="let place of nearbyPlace">
+    {{place.name}}
+    {{place.geometry.location.lat}}
+    {{place.geometry.location.lng}}
+  </div>
+</div>
+
+<button (click)="getPlace()">Get Location</button>
 <router-outlet></router-outlet>

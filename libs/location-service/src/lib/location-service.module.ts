@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -12,7 +12,13 @@ import { Observable } from 'rxjs';
 })
 export class LocationServiceModule {
   constructor(private http: HttpClient) {}
-  getPlace() {
-    return this.http.get('http://localhost:3333/location');
+  getPlace(position: Position): Observable<any> {
+    console.log('location service position', position)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post('http://localhost:3333/location', { lat: position.coords.latitude, lng: position.coords.longitude }, httpOptions);
   }
 }

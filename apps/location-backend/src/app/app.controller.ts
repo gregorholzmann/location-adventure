@@ -1,13 +1,16 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 
 import { AppService } from './app.service';
+import { AxiosResponse } from 'axios';
+import { Observable } from 'rxjs';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private appService: AppService) {}
 
-  @Get('location')
-  getData() {
-    return this.appService.getData();
+  @Post('location')
+  getData(@Body() position: {lat: number, lng: number}): Observable<AxiosResponse<any>> {
+    console.log('lat lng', position)
+    return this.appService.getData(position);
   }
 }
