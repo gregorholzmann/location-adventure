@@ -2,11 +2,18 @@
   <h1>
     Some Info About Nearby Places
   </h1>
-  {{nearbyPlace.length}}
-  <div *ngFor="let place of nearbyPlace">
-    {{place.name}}
-    {{place.geometry.location.lat}}
-    {{place.geometry.location.lng}}
+  <div *ngIf="(nearbyPlace | async); let place;">
+    <h2>
+      Welcome to the magical land of {{place.placesData.name}}
+    </h2>
+    <ul>
+      <li>
+        Latitude: {{place.placesData.geometry.location.lat}}
+      </li>
+      <li>
+        Longitude: {{place.placesData.geometry.location.lng}}
+      </li>
+    </ul>
   </div>
 </div>
 

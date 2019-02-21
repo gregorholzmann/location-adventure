@@ -10,18 +10,14 @@ import {LocationServiceModule} from '@location-adventure/location-service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  nearbyPlace: string[] = []
+  nearbyPlace: Observable<any>
 
   constructor(private locationService: LocationServiceModule){}
 
   getPlace() {
 
     navigator.geolocation.getCurrentPosition((position: Position) => {
-      console.log('position', position)
-      this.locationService.getPlace(position).subscribe(res => {
-        console.log('places API response', res.results)
-        this.nearbyPlace = res.results
-      });
+      this.nearbyPlace = this.locationService.getPlace(position);
     })
   }
 }
