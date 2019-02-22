@@ -13,7 +13,6 @@ import { Observable } from 'rxjs';
 export class LocationServiceModule {
   constructor(private http: HttpClient) {}
   getPlace(position: Position): Observable<any> {
-    console.log('location service position', position)
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'

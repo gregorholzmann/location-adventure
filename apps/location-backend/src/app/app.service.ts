@@ -2,13 +2,15 @@ import { Injectable, HttpService, NotFoundException } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AxiosResponse } from 'axios';
+
+import  { GOOGLE_NEARBY_URL, GOOGLE_PHOTO_URL } from '../../../../constants';
 import  {googlePlacesAPIKey } from '../../../../secrets';
 
 @Injectable()
 export class AppService {
   constructor(private readonly httpService: HttpService) {}
   getPlacesData(position: {lat: number, lng: number}): Observable<any> {
-    return this.httpService.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+    return this.httpService.get(GOOGLE_NEARBY_URL,
       {
         params: {
           key:googlePlacesAPIKey,
@@ -24,7 +26,7 @@ export class AppService {
   }
 
   getPlacesPhotoData(photoRef: string): Observable<any> {
-    return this.httpService.get('https://maps.googleapis.com/maps/api/place/photo',
+    return this.httpService.get(GOOGLE_PHOTO_URL,
       {
         params: {
           key:googlePlacesAPIKey,
@@ -33,6 +35,7 @@ export class AppService {
         }
       }).pipe(
         map(response => {
+          console.log('Photos API response', typeof response.data)
           return response.data
         })
       );

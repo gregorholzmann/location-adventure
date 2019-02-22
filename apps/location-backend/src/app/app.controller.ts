@@ -1,8 +1,8 @@
 import { Controller, Post, Body } from '@nestjs/common';
 
 import { AppService } from './app.service';
-import { Observable } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { switchMap, map, catchError } from 'rxjs/operators';
 
 @Controller()
 export class AppController {
@@ -12,13 +12,36 @@ export class AppController {
   getData(@Body() position: {lat: number, lng: number}): Observable<{placesData: any, photosData: any}> {
     return this.appService.getPlacesData(position)
       .pipe(
-        switchMap(firstResponse => this.appService.getPlacesPhotoData(firstResponse.photos[0].photo_reference)
-        .pipe(
-          map(secondResponse => ({
-            placesData: firstResponse,
-            photosData: secondResponse
-          }))
-        ))
+        catchError(err => {
+          console.warn('Something went wrong with the Places API call. ¯\\_(ツ)_/¯');
+          return of({
+            placesData: null,
+            photosData: null
+          })
+        }),
+        switchMap(firstResponse => {
+          if(firstResponse.photos && firstResponse.photos[0].photo_reference) {
+            return this.appService.getPlacesPhotoData(firstResponse.photos[0].photo_reference)
+            .pipe(
+              catchError(err => {
+                console.warn('Something went wrong with the Photos API call. ¯\\_(ツ)_/¯');
+                return of({
+                  placesData: firstResponse,
+                  photosData: null
+                })
+              }),
+              map(secondResponse => ({
+                placesData: firstResponse,
+                photosData: secondResponse
+              }))
+            )
+          } else {
+            return of({
+              placesData: firstResponse,
+              photosData: null
+            })
+          }
+        })
       );
   }
 }
