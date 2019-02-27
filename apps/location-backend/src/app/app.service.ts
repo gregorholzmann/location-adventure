@@ -1,4 +1,4 @@
-import { Injectable, HttpService, NotFoundException } from '@nestjs/common';
+import { Injectable, HttpService } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AxiosResponse } from 'axios';
@@ -26,18 +26,25 @@ export class AppService {
   }
 
   getPlacesPhotoData(photoRef: string): Observable<any> {
-    return this.httpService.get(GOOGLE_PHOTO_URL,
-      {
-        params: {
-          key:googlePlacesAPIKey,
-          photoreference:photoRef,
-          maxwidth: 500
-        }
-      }).pipe(
-        map(response => {
-          console.log('Photos API response', typeof response.data)
-          return response.data
-        })
-      );
+    if(photoRef) {
+      return this.httpService.get(GOOGLE_PHOTO_URL,
+        {
+          params: {
+            key:googlePlacesAPIKey,
+            photoreference:photoRef,
+            maxwidth: 500
+          },
+          responseType: 'arraybuffer'
+        }).pipe(
+          map(response => {
+            return response.data;
+          })
+        );
+    } else {
+      of({
+        type: null,
+        data: null
+      })
+    }
   }
 }

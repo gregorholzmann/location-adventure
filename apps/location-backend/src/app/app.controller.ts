@@ -1,12 +1,13 @@
 import { Controller, Post, Body } from '@nestjs/common';
 
 import { AppService } from './app.service';
+import { PhotoProcessingService } from './photo-processing.service';
 import { Observable, of } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
 
 @Controller()
 export class AppController {
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService, private photoService: PhotoProcessingService) {}
 
   @Post('location')
   getData(@Body() position: {lat: number, lng: number}): Observable<{placesData: any, photosData: any}> {
@@ -20,8 +21,8 @@ export class AppController {
           })
         }),
         switchMap(firstResponse => {
-          if(firstResponse.photos && firstResponse.photos[0].photo_reference) {
-            return this.appService.getPlacesPhotoData(firstResponse.photos[0].photo_reference)
+          let photoRef = firstResponse.photos && firstResponse.photos[0].photo_reference ? firstResponse.photos[0].photo_reference : null;
+          return this.appService.getPlacesPhotoData(photoRef)
             .pipe(
               catchError(err => {
                 console.warn('Something went wrong with the Photos API call. ¯\\_(ツ)_/¯');
@@ -32,15 +33,9 @@ export class AppController {
               }),
               map(secondResponse => ({
                 placesData: firstResponse,
-                photosData: secondResponse
+                photosData: this.photoService.getColorPalette(secondResponse)
               }))
             )
-          } else {
-            return of({
-              placesData: firstResponse,
-              photosData: null
-            })
-          }
         })
       );
   }
