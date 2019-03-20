@@ -1,6 +1,6 @@
-import { Injectable, HttpService } from '@nestjs/common';
-import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Injectable, HttpService, NotFoundException } from '@nestjs/common';
+import { Observable, of, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { AxiosResponse } from 'axios';
 
 import  { GOOGLE_NEARBY_URL, GOOGLE_PHOTO_URL } from '../../../../constants';
@@ -38,7 +38,8 @@ export class AppService {
         }).pipe(
           map(response => {
             return response.data;
-          })
+          }),
+          catchError(err => throwError(new NotFoundException()))
         );
     } else {
       of({

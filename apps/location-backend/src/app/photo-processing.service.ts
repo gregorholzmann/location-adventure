@@ -5,7 +5,11 @@ const { createCanvas, Image } = require('canvas');
 export class PhotoProcessingService {
   constructor() {}
 
-  getColorPalette(image: Buffer): Array<any> {
+  getColorPalette(image: Buffer): Array<Number[]> {
+    return this.getPixelArray(image);
+  }
+
+  getPixelArray(image: Buffer): Array<Number[]> {
     let img = new Image();
     img.src = image;
     let canvas = createCanvas(img.width, img.height);
@@ -19,7 +23,7 @@ export class PhotoProcessingService {
     let pixelCount = width * height;
 
     let pixelArray = [];
-    for (let i = 0, offset, r, g, b, a; i < pixelCount; i = i + 10) {
+    for (let i = 0, offset, r, g, b, a; i < pixelCount; i = i + 100) {
         offset = i * 4;
         r = pixels[offset + 0];
         g = pixels[offset + 1];

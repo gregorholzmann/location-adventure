@@ -14,6 +14,10 @@
         Longitude: {{place.placesData.geometry.location.lng}}
       </li>
     </ul>
+    <h4>Color Array:</h4>
+    <ul>
+      <li *ngFor="let color of place.photosData">{{color}}</li>
+    </ul>
   </div>
 </div>
 
