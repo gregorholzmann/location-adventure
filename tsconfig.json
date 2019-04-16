@@ -15,6 +15,12 @@
     "paths": {
       "@location-adventure/shared/place/data-access": [
         "libs/shared/place/data-access/src/index.ts"
+      ],
+      "@location-adventure/place/feature-shell": [
+        "libs/place/feature-shell/src/index.ts"
+      ],
+      "@location-adventure/shared/util-models": [
+        "libs/shared/util-models/src/index.ts"
       ]
     }
   },

@@ -10,6 +10,21 @@
   "projects": {
     "shared-place-data-access": {
       "tags": ["scope:shared", "type:app"]
+    },
+    "web": {
+      "tags": ["platform:client"]
+    },
+    "web-e2e": {
+      "tags": []
+    },
+    "api": {
+      "tags": ["platform:server"]
+    },
+    "place-feature-shell": {
+      "tags": ["scope:place", "type:feature", "platform:client"]
+    },
+    "shared-util-models": {
+      "tags": []
     }
   }
 }

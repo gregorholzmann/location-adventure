@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/apps/location-frontend",
+    "outDir": "../../dist/out-tsc/apps/web",
     "types": []
   },
   "exclude": ["test.ts", "**/*.spec.ts"],

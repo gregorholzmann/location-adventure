@@ -1,9 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/apps/location-frontend",
+    "outDir": "../../../dist/out-tsc/libs/shared/util-models",
     "types": ["jasmine", "node"]
   },
-  "files": ["src/test.ts", "src/polyfills.ts"],
+  "files": ["src/test.ts"],
   "include": ["**/*.spec.ts", "**/*.d.ts"]
 }
