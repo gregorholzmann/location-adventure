@@ -17,6 +17,6 @@ import { PlaceEffects } from './+state/place.effects';
     }),
     EffectsModule.forFeature([PlaceEffects])
   ],
-  providers: [SharedPlaceDataAccessService]
+  providers: []
 })
 export class SharedPlaceDataAccessModule {}

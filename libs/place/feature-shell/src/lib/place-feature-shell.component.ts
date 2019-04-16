@@ -5,27 +5,27 @@ import { Observable } from 'rxjs';
   selector: 'location-adventure-home-feature-shell',
   template: `
   <div>
-  <h1>
-    Some Info About Nearby Places
-  </h1>
-  <div *ngIf="(nearbyPlace | async); let place;">
-    <h2>
-      Welcome to the magical land of {{place.placesData.name}}
-    </h2>
-    <ul>
-      <li>
-        Latitude: {{place.placesData.geometry.location.lat}}
-      </li>
-      <li>
-        Longitude: {{place.placesData.geometry.location.lng}}
-      </li>
-    </ul>
-    <h4>Color Array:</h4>
-    <ul>
-      <li *ngFor="let color of place.photosData">{{color}}</li>
-    </ul>
+    <h1>
+      Some Info About Nearby Places
+    </h1>
+    <div *ngIf="(nearbyPlace | async); let place;">
+      <h2>
+        Welcome to the magical land of {{place.placesData.name}}
+      </h2>
+      <ul>
+        <li>
+          Latitude: {{place.placesData.geometry.location.lat}}
+        </li>
+        <li>
+          Longitude: {{place.placesData.geometry.location.lng}}
+        </li>
+      </ul>
+      <h4>Color Array:</h4>
+      <ul>
+        <li *ngFor="let color of place.photosData">{{color}}</li>
+      </ul>
+    </div>
   </div>
-</div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
