@@ -26,6 +26,18 @@
       ],
       "@location-adventure/shared/data-access": [
         "libs/shared/data-access/src/index.ts"
+      ],
+      "@location-adventure/shared/place/api/data-access": [
+        "libs/shared/place/api/data-access/src/index.ts"
+      ],
+      "@location-adventure/shared/util-constants": [
+        "libs/shared/util-constants/src/index.ts"
+      ],
+      "@location-adventure/shared/place/api/feature-photo-processing": [
+        "libs/shared/place/api/feature-photo-processing/src/index.ts"
+      ],
+      "@location-adventure/place/api/feature-endpoints": [
+        "libs/place/api/feature-endpoints/src/index.ts"
       ]
     }
   },

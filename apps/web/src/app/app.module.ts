@@ -21,15 +21,13 @@ import { PlaceFeatureShellModule } from '@location-adventure/place/feature-shell
       [
         {
           path: '',
-          loadChildren: '@location-adventure/place/feature-shell#PlaceFeatureShellModule'
-        },
+          loadChildren:
+            '@location-adventure/place/feature-shell#PlaceFeatureShellModule'
+        }
       ],
-      { initialNavigation: 'enabled' },
+      { initialNavigation: 'enabled' }
     ),
-    environment.production
-    ? []
-    : StoreDevtoolsModule.instrument(),
-
+    environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]

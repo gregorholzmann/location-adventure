@@ -3,7 +3,7 @@ import { Place } from '@location-adventure/shared/util-models';
 export const PLACE_FEATURE_KEY = 'place';
 
 export interface PlaceState {
-  nearestPlace: Place,
+  nearestPlace: Place;
   loaded: boolean;
 }
 

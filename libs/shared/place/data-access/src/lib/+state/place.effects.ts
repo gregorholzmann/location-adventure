@@ -20,8 +20,7 @@ export class PlaceEffects {
       run: (action: LoadPlace, state: PlaceState) => {
         return this.placeDataAccessService
           .getPlace(action.position)
-          .pipe(map(s => new PlaceLoaded(s))
-        )
+          .pipe(map(s => new PlaceLoaded(s)));
       },
 
       onError: (action: LoadPlace, error) => {

@@ -8,7 +8,7 @@ export enum PlaceActionTypes {
 
 export class LoadPlace implements Action {
   readonly type = PlaceActionTypes.LoadPlace;
-  constructor(public position: Position){}
+  constructor(public position: Position) {}
 }
 
 export class PlaceLoadError implements Action {

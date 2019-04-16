@@ -9,6 +9,6 @@ import { StoreModule } from '@ngrx/store';
     SharedPlaceDataAccessModule,
     StoreModule.forRoot({ router: routerReducer }),
     EffectsModule.forRoot([])
-  ],
+  ]
 })
 export class SharedDataAccessModule {}

@@ -316,6 +316,130 @@
           "styleext": "scss"
         }
       }
+    },
+    "shared-util-constants": {
+      "root": "libs/shared/util-constants",
+      "sourceRoot": "libs/shared/util-constants/src",
+      "projectType": "library",
+      "prefix": "location-adventure",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/util-constants/src/test.ts",
+            "tsConfig": "libs/shared/util-constants/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/util-constants/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/util-constants/tsconfig.lib.json",
+              "libs/shared/util-constants/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "shared-place-api-feature-photo-processing": {
+      "root": "libs/shared/place/api/feature-photo-processing",
+      "sourceRoot": "libs/shared/place/api/feature-photo-processing/src",
+      "projectType": "library",
+      "prefix": "location-adventure",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/place/api/feature-photo-processing/src/test.ts",
+            "tsConfig": "libs/shared/place/api/feature-photo-processing/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/place/api/feature-photo-processing/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/place/api/feature-photo-processing/tsconfig.lib.json",
+              "libs/shared/place/api/feature-photo-processing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "shared-place-api-feature-endpoints": {
+      "root": "libs/shared/place/api/feature-endpoints",
+      "sourceRoot": "libs/shared/place/api/feature-endpoints/src",
+      "projectType": "library",
+      "prefix": "location-adventure",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/place/api/feature-endpoints/src/test.ts",
+            "tsConfig": "libs/shared/place/api/feature-endpoints/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/place/api/feature-endpoints/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/place/api/feature-endpoints/tsconfig.lib.json",
+              "libs/shared/place/api/feature-endpoints/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "place-api-feature-endpoints": {
+      "root": "libs/place/api/feature-endpoints",
+      "sourceRoot": "libs/place/api/feature-endpoints/src",
+      "projectType": "library",
+      "prefix": "location-adventure",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/place/api/feature-endpoints/src/test.ts",
+            "tsConfig": "libs/place/api/feature-endpoints/tsconfig.spec.json",
+            "karmaConfig": "libs/place/api/feature-endpoints/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/place/api/feature-endpoints/tsconfig.lib.json",
+              "libs/place/api/feature-endpoints/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

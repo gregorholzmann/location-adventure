@@ -24,10 +24,22 @@
       "tags": ["scope:place", "type:feature", "platform:client"]
     },
     "shared-util-models": {
-      "tags": []
+      "tags": ["scope:shared", "type:utils"]
     },
     "shared-data-access": {
       "tags": ["scope:shared", "type:data-access", "platform:client"]
+    },
+    "shared-place-api-data-access": {
+      "tags": ["scope:shared", "type:data-access", "platform:server"]
+    },
+    "shared-util-constants": {
+      "tags": []
+    },
+    "shared-place-api-feature-photo-processing": {
+      "tags": []
+    },
+    "place-api-feature-endpoints": {
+      "tags": []
     }
   }
 }

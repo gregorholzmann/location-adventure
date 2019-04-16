@@ -6,8 +6,8 @@ import { PlaceFeatureShellComponent } from './place-feature-shell.component';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: '', pathMatch: 'full', component: PlaceFeatureShellComponent },
-    ]),
+      { path: '', pathMatch: 'full', component: PlaceFeatureShellComponent }
+    ])
   ],
   declarations: [PlaceFeatureShellComponent]
 })

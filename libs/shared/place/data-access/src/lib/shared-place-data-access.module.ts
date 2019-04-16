@@ -8,7 +8,7 @@ import {
   placeReducer
 } from './+state/place.reducer';
 import { PlaceEffects } from './+state/place.effects';
-import { PlaceFacade } from './+state/place.facade'
+import { PlaceFacade } from './+state/place.facade';
 
 @NgModule({
   imports: [

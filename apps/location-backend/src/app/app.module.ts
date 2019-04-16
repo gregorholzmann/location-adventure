@@ -7,9 +7,6 @@ import { PhotoProcessingService } from './photo-processing.service';
 @Module({
   imports: [HttpModule],
   controllers: [AppController],
-  providers: [
-    AppService,
-    PhotoProcessingService
-  ],
+  providers: [AppService, PhotoProcessingService]
 })
 export class AppModule {}
