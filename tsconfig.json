@@ -13,8 +13,8 @@
     "lib": ["es2017", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@location-adventure/location-service": [
-        "libs/location-service/src/index.ts"
+      "@location-adventure/shared/place/data-access": [
+        "libs/shared/place/data-access/src/index.ts"
       ]
     }
   },

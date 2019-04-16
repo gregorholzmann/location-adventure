@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/libs/location-service",
+    "outDir": "../../../../dist/out-tsc/libs/shared/place/data-access",
     "types": ["jasmine", "node"]
   },
   "files": ["src/test.ts"],

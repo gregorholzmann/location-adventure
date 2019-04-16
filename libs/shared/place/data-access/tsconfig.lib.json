@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/libs/location-service",
+    "outDir": "../../../../dist/out-tsc/libs/shared/place/data-access",
     "target": "es2015",
     "module": "es2015",
     "moduleResolution": "node",

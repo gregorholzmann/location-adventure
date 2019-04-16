@@ -8,17 +8,8 @@
     "nx.json": "*"
   },
   "projects": {
-    "location-frontend": {
-      "tags": []
-    },
-    "location-frontend-e2e": {
-      "tags": []
-    },
-    "location-backend": {
-      "tags": []
-    },
-    "location-service": {
-      "tags": []
+    "shared-place-data-access": {
+      "tags": ["scope:shared", "type:app"]
     }
   }
 }

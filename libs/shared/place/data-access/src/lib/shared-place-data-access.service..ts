@@ -1,17 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
-@NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule
-  ]
+@Injectable({
+  providedIn: 'root',
 })
-export class LocationServiceModule {
+export class SharedPlaceDataAccessService {
   constructor(private http: HttpClient) {}
+
   getPlace(position: Position): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
