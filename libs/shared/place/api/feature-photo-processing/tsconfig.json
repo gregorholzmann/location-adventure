@@ -1,7 +1,17 @@
 {
   "extends": "../../../../../tsconfig.json",
   "compilerOptions": {
-    "types": ["jasmine"]
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "./dist"
   },
-  "include": ["**/*.ts"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
