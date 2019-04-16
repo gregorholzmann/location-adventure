@@ -25,6 +25,9 @@
     },
     "shared-util-models": {
       "tags": []
+    },
+    "shared-data-access": {
+      "tags": ["scope:shared", "type:data-access", "platform:client"]
     }
   }
 }

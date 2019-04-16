@@ -12,6 +12,8 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
     "baseUrl": ".",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
     "paths": {
       "@location-adventure/shared/place/data-access": [
         "libs/shared/place/data-access/src/index.ts"
@@ -21,6 +23,9 @@
       ],
       "@location-adventure/shared/util-models": [
         "libs/shared/util-models/src/index.ts"
+      ],
+      "@location-adventure/shared/data-access": [
+        "libs/shared/data-access/src/index.ts"
       ]
     }
   },

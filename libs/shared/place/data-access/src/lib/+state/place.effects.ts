@@ -18,7 +18,7 @@ export class PlaceEffects {
     PlaceActionTypes.LoadPlace,
     {
       run: (action: LoadPlace, state: PlaceState) => {
-        this.placeDataAccessService
+        return this.placeDataAccessService
           .getPlace(action.position)
           .pipe(map(s => new PlaceLoaded(s))
         )

@@ -8,6 +8,7 @@ import {
   placeReducer
 } from './+state/place.reducer';
 import { PlaceEffects } from './+state/place.effects';
+import { PlaceFacade } from './+state/place.facade'
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { PlaceEffects } from './+state/place.effects';
     }),
     EffectsModule.forFeature([PlaceEffects])
   ],
-  providers: []
+  providers: [PlaceFacade]
 })
 export class SharedPlaceDataAccessModule {}

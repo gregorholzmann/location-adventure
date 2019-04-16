@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PlaceFacade } from '@location-adventure/shared/place/data-access';
+
 
 @Component({
   selector: 'location-adventure-home-feature-shell',
@@ -25,18 +27,19 @@ import { Observable } from 'rxjs';
         <li *ngFor="let color of place.photosData">{{color}}</li>
       </ul>
     </div>
+    <button (click)="getPlace()">Get Location</button>
   </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlaceFeatureShellComponent {
-  constructor() {}
+  constructor(private placeFacade: PlaceFacade) {}
   nearbyPlace: Observable<any>
 
   getPlace() {
 
     navigator.geolocation.getCurrentPosition((position: Position) => {
-      // this.nearbyPlace = this.locationService.getPlace(position);
+      this.placeFacade.loadPlace(position);
     })
   }
 }

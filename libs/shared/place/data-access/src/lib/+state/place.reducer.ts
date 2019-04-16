@@ -1,11 +1,10 @@
 import { PlaceAction, PlaceActionTypes } from './place.actions';
-
+import { Place } from '@location-adventure/shared/util-models';
 export const PLACE_FEATURE_KEY = 'place';
 
-
 export interface PlaceState {
-  nearestPlace: null,
-  loaded: boolean; // has the Place list been loaded
+  nearestPlace: Place,
+  loaded: boolean;
 }
 
 export const initialState: PlaceState = {
