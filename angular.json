@@ -106,7 +106,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "web:build"
+            "browserTarget": "web:build",
+            "proxyConfig": "apps/web//proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -379,37 +380,6 @@
         }
       }
     },
-    "shared-place-api-feature-endpoints": {
-      "root": "libs/shared/place/api/feature-endpoints",
-      "sourceRoot": "libs/shared/place/api/feature-endpoints/src",
-      "projectType": "library",
-      "prefix": "location-adventure",
-      "architect": {
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/shared/place/api/feature-endpoints/src/test.ts",
-            "tsConfig": "libs/shared/place/api/feature-endpoints/tsconfig.spec.json",
-            "karmaConfig": "libs/shared/place/api/feature-endpoints/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/place/api/feature-endpoints/tsconfig.lib.json",
-              "libs/shared/place/api/feature-endpoints/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "place-api-feature-endpoints": {
       "root": "libs/place/api/feature-endpoints",
       "sourceRoot": "libs/place/api/feature-endpoints/src",
@@ -440,6 +410,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "shared-place-api-data-access": {
+      "root": "libs/shared/place/api/data-access",
+      "sourceRoot": "libs/shared/place/api/data-access/src",
+      "projectType": "library",
+      "prefix": "location-adventure",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/place/api/data-access/src/test.ts",
+            "tsConfig": "libs/shared/place/api/data-access/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/place/api/data-access/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/place/api/data-access/tsconfig.lib.json",
+              "libs/shared/place/api/data-access/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
@@ -452,10 +453,17 @@
   },
   "schematics": {
     "@nrwl/schematics:application": {
-      "style": "scss"
+      "style": "scss",
+      "unitTestRunner": "karma",
+      "e2eTestRunner": "protractor"
     },
     "@nrwl/schematics:library": {
-      "style": "scss"
+      "style": "scss",
+      "unitTestRunner": "karma",
+      "framework": "angular"
+    },
+    "@nrwl/schematics:node-application": {
+      "framework": "express"
     }
   },
   "defaultProject": "apps-location-frontend"

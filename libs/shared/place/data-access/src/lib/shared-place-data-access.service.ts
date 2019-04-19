@@ -16,8 +16,15 @@ export class SharedPlaceDataAccessService {
       })
     };
     return this.http.post<Place>(
-      'http://localhost:3333/location',
-      { lat: position.coords.latitude, lng: position.coords.longitude },
+      '/api/v1/place',
+      {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        accuracy: position.coords.accuracy,
+        altitudeAccuracy: position.coords.altitudeAccuracy,
+        heading: position.coords.heading,
+        speed: position.coords.speed
+      },
       httpOptions
     );
   }

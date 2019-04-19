@@ -11,12 +11,12 @@ import { googlePlacesAPIKey } from '../../../../../../../secrets';
 @Injectable()
 export class SharedPlaceApiDataAccessService {
   constructor(private readonly httpService: HttpService) {}
-  getPlacesData(position: { lat: number; lng: number }): Observable<any> {
+  getPlacesData(coordinates: Coordinates): Observable<any> {
     return this.httpService
       .get(GOOGLE_NEARBY_URL, {
         params: {
           key: googlePlacesAPIKey,
-          location: `${position.lat}, ${position.lng}`,
+          location: `${coordinates.latitude}, ${coordinates.longitude}`,
           radius: 500
         }
       })

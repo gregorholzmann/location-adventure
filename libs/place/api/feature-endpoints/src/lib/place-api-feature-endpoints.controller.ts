@@ -14,14 +14,14 @@ export class PlaceApiFeatureEndpointsController {
   ) {}
 
   @Post()
-  getData(@Body() position: { lat: number; lng: number }): Observable<{
+  getData(@Body() coordinates: Coordinates): Observable<{
     placesData: any;
     photosData: any;
   }> {
-    return this.placeService.getPlacesData(position).pipe(
+    return this.placeService.getPlacesData(coordinates).pipe(
       catchError(err => {
-        console.warn(
-          'Something went wrong with the Places API call. ¯\\_(ツ)_/¯'
+        console.error(
+          'Something went wrong with the Places API call. ¯\\_(ツ)_/¯', err
         );
         return of({
           placesData: null,
@@ -35,8 +35,8 @@ export class PlaceApiFeatureEndpointsController {
             : null;
         return this.placeService.getPlacesPhotoData(photoRef).pipe(
           catchError(err => {
-            console.warn(
-              'Something went wrong with the Photos API call. ¯\\_(ツ)_/¯'
+            console.error(
+              'Something went wrong with the Photos API call. ¯\\_(ツ)_/¯', err
             );
             return of({
               placesData: firstResponse,
