@@ -1,3 +1,7 @@
+import { Place } from './index';
+
 export class ReadPlaceDto {
-  position: Position;
+  html_attributions: string[];
+  results: Place[];
+  status: string;
 }

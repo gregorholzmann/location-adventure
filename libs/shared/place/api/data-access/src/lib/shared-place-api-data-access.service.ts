@@ -1,7 +1,7 @@
 import { Injectable, HttpService, NotFoundException } from '@nestjs/common';
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-
+import { Place, ReadPlaceDto} from '@location-adventure/shared/util-models';
 import {
   GOOGLE_NEARBY_URL,
   GOOGLE_PHOTO_URL
@@ -11,9 +11,9 @@ import { googlePlacesAPIKey } from '../../../../../../../secrets';
 @Injectable()
 export class SharedPlaceApiDataAccessService {
   constructor(private readonly httpService: HttpService) {}
-  getPlacesData(coordinates: Coordinates): Observable<any> {
+  getPlacesData(coordinates: Coordinates): Observable<Place> {
     return this.httpService
-      .get(GOOGLE_NEARBY_URL, {
+      .get<ReadPlaceDto>(GOOGLE_NEARBY_URL, {
         params: {
           key: googlePlacesAPIKey,
           location: `${coordinates.latitude}, ${coordinates.longitude}`,
@@ -29,10 +29,10 @@ export class SharedPlaceApiDataAccessService {
       );
   }
 
-  getPlacesPhotoData(photoRef: string): Observable<any> {
+  getPlacesPhotoData(photoRef: string): Observable<Buffer> {
     if (photoRef) {
       return this.httpService
-        .get(GOOGLE_PHOTO_URL, {
+        .get<Buffer>(GOOGLE_PHOTO_URL, {
           params: {
             key: googlePlacesAPIKey,
             photoreference: photoRef,
